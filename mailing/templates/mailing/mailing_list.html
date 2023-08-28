@@ -1,0 +1,25 @@
+{% extends 'mailing/base.html' %}
+
+
+{% block content %}
+
+<section class="py-5 text-center container" xmlns="http://www.w3.org/1999/html">
+    <div class="row py-lg-5">
+        <div class="col-lg-6 col-md-8 mx-auto">
+            <h1 class="fw-light">Все рассылки.</h1><br>
+        </div>
+    </div>
+</section>
+
+<div class="album py-5 bg-light">
+    <div class="container">
+
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+            {% for object in object_list %}
+            {% include 'mailing/include/inc_mailing_detail.html' %}
+
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}

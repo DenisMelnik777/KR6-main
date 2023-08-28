@@ -1,0 +1,29 @@
+{% extends 'mailing/base.html' %}
+{% load image_teg %}
+
+
+{% block content %}
+
+    <section class="py-5 text-center container" xmlns="http://www.w3.org/1999/html">
+        <div class="row py-lg-5">
+            <div class="col-lg-6 col-md-8 mx-auto">
+                <h1 class="fw-light">Статьи блога.</h1><br>
+                <p>
+                    <a class="btn btn-primary bg-dark" href="{% url 'blog:create' %}">Добавить новую статью</a>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <div class="album py-5 bg-light">
+        <div class="container">
+
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+                {% for object in object_list %}
+                    {% include 'blog/include/inc_blog_detail.html' %}
+
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

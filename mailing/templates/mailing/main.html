@@ -1,0 +1,54 @@
+{% extends 'mailing/base.html' %}
+
+{% block content %}
+
+<section class="py-5 text-center container">
+    <div class="row py-lg-5">
+        <div class="col-lg-12 col-md-8 mx-auto">
+            <h1 class="fw-light">Добро пожаловать!</h1>
+            <p class="lead text-muted">Мы рады, что вы посетили наш сайт!<br>
+                «Страшнее всего в технике быть троечником. Троечник – человек достаточно грамотный для того, чтобы
+                представить себе последствия катастрофы, но недостаточно грамотный, чтобы её предотвратить. И.В.
+                Курчатов»</p>
+        </div>
+    </div>
+</section>
+<div class="album py-5 bg-light">
+    <div class="container">
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+            <div class="col">
+                <div class="card mb-4 shadow-sm">
+                    <div class="card-header">
+                        <p class="card-text">Всего рассылок: {{ mailing_count }}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card mb-4 shadow-sm">
+                    <div class="card-header">
+                        <p class="card-text">Активных рассылок: {{ mailing_active }}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card mb-4 shadow-sm">
+                    <div class="card-header">
+                        <p class="card-text">Всего клиентов: {{ customer_count }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="album py-5 bg-light">
+    <div class="container">
+
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+            {% for object in blog_list %}
+            {% include 'blog/include/inc_blog_detail.html' %}
+
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}
